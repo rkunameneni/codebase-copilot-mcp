@@ -1,0 +1,23 @@
+{
+  "name": "@codebase-copilot/mcp-server",
+  "version": "0.1.0",
+  "description": "Model Context Protocol server (stdio) exposing code search, snippets, symbols, references and test-skeleton tools over an indexed repository.",
+  "license": "MIT",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "bin": {
+    "codebase-copilot-mcp": "dist/cli.js"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc -b",
+    "start": "node dist/cli.js"
+  },
+  "dependencies": {
+    "@codebase-copilot/rag": "0.1.0",
+    "@modelcontextprotocol/sdk": "^1.31.0",
+    "zod": "^4.6.5"
+  }
+}

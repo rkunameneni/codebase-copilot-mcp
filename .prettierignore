@@ -1,0 +1,8 @@
+node_modules
+dist
+coverage
+package-lock.json
+.copilot-index
+sample-repo
+*.md
+evals/results

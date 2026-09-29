@@ -1,0 +1,23 @@
+{
+  "name": "@codebase-copilot/agent",
+  "version": "0.1.0",
+  "description": "Agentic CLI that runs a Claude tool-use loop over the Codebase Copilot tools to perform AI-assisted code review.",
+  "license": "MIT",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "bin": {
+    "copilot": "dist/cli.js"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc -b"
+  },
+  "dependencies": {
+    "@codebase-copilot/rag": "0.1.0",
+    "@codebase-copilot/mcp-server": "0.1.0",
+    "@anthropic-ai/sdk": "^0.129.0",
+    "zod": "^4.6.5"
+  }
+}

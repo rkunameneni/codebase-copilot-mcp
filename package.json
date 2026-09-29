@@ -1,0 +1,42 @@
+{
+  "name": "codebase-copilot-mcp",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Make a source repository queryable by AI agents: hybrid RAG, an MCP server, and an agentic code reviewer built on Claude.",
+  "license": "MIT",
+  "author": "rkunameneni",
+  "workspaces": [
+    "packages/rag",
+    "packages/mcp-server",
+    "packages/agent"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "build": "tsc -b packages/rag packages/mcp-server packages/agent",
+    "clean": "tsc -b --clean packages/rag packages/mcp-server packages/agent",
+    "typecheck": "tsc -p tsconfig.test.json --noEmit",
+    "lint": "npm run typecheck && eslint . && prettier --check .",
+    "format": "prettier --write .",
+    "test": "jest",
+    "test:coverage": "jest --coverage",
+    "eval": "node evals/run-evals.mjs",
+    "smoke:mcp": "node scripts/mcp-smoke.mjs",
+    "smoke:docker": "docker build -t codebase-copilot-mcp:local . && node scripts/mcp-smoke.mjs --docker codebase-copilot-mcp:local",
+    "copilot": "node packages/agent/dist/cli.js"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "@types/jest": "^30.0.0",
+    "@types/node": "^26.6.3",
+    "eslint": "^10.11.0",
+    "eslint-config-prettier": "^10.1.8",
+    "globals": "^17.12.0",
+    "jest": "^30.5.2",
+    "prettier": "^3.9.9",
+    "ts-jest": "^29.4.14",
+    "typescript": "^6.0.3",
+    "typescript-eslint": "^8.71.0"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "extends": "./tsconfig.base.json",
+  "compilerOptions": {
+    "composite": false,
+    "declaration": false,
+    "declarationMap": false,
+    "noEmit": true,
+    "isolatedModules": true,
+    "types": ["node", "jest"],
+    "paths": {
+      "@codebase-copilot/rag": ["./packages/rag/src/index.ts"],
+      "@codebase-copilot/mcp-server": ["./packages/mcp-server/src/index.ts"],
+      "@codebase-copilot/agent": ["./packages/agent/src/index.ts"]
+    }
+  },
+  "include": ["packages/*/src", "packages/*/test"]
+}

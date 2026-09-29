@@ -1,0 +1,645 @@
+{
+  "corpus": "sample-repo",
+  "embeddings": "tfidf-hash-v1:1024",
+  "ks": [
+    1,
+    3,
+    5
+  ],
+  "answerable": 11,
+  "unanswerable": 3,
+  "modes": [
+    {
+      "mode": "bm25",
+      "meanRecall": {
+        "1": 0.6363636363636364,
+        "3": 0.8181818181818182,
+        "5": 0.8636363636363636
+      },
+      "mrr": 0.7478354978354979,
+      "cases": [
+        {
+          "id": "cancel-releases-stock",
+          "query": "Where is stock released when an order is cancelled?",
+          "ranked": [
+            "src/main/java/com/example/orders/service/InventoryService.java#release",
+            "src/main/java/com/example/orders/model/OrderStatus.java#OrderStatus",
+            "web/src/orderClient.ts#OrderDto",
+            "src/main/java/com/example/orders/exception/InsufficientStockException.java#InsufficientStockException",
+            "src/main/java/com/example/orders/service/InventoryService.java#reserve"
+          ],
+          "recall": {
+            "1": 0,
+            "3": 0,
+            "5": 0
+          },
+          "reciprocalRank": 0.14285714285714285,
+          "refused": false
+        },
+        {
+          "id": "loyalty-discount",
+          "query": "How is the loyalty discount applied to the subtotal?",
+          "ranked": [
+            "src/main/java/com/example/orders/service/DiscountPolicy.java#DiscountPolicy",
+            "src/main/java/com/example/orders/service/DiscountPolicy.java#applyLoyaltyDiscount",
+            "src/main/java/com/example/orders/service/OrderService.java#calculateTotal",
+            "src/main/java/com/example/orders/service/DiscountPolicy.java#legacyDiscountedTotal",
+            "src/main/resources/application.properties"
+          ],
+          "recall": {
+            "1": 0,
+            "3": 1,
+            "5": 1
+          },
+          "reciprocalRank": 0.5,
+          "refused": false
+        },
+        {
+          "id": "insufficient-inventory",
+          "query": "What exception is thrown when there is not enough inventory?",
+          "ranked": [
+            "src/main/java/com/example/orders/exception/OrderNotFoundException.java",
+            "src/test/java/com/example/orders/service/InventoryServiceTest.java",
+            "src/main/java/com/example/orders/service/OrderService.java",
+            "src/main/java/com/example/orders/service/InventoryService.java",
+            "src/main/java/com/example/orders/service/PaymentService.java"
+          ],
+          "recall": {
+            "1": 0,
+            "3": 0,
+            "5": 0.5
+          },
+          "reciprocalRank": 0.25,
+          "refused": false
+        },
+        {
+          "id": "customer-search-sql",
+          "query": "SQL query that searches orders by customer text",
+          "ranked": [
+            "src/main/java/com/example/orders/repository/JdbcOrderSearchRepository.java",
+            "src/main/java/com/example/orders/controller/OrderController.java",
+            "src/main/java/com/example/orders/repository/OrderRowMapper.java",
+            "src/main/java/com/example/orders/service/OrderService.java",
+            "src/main/java/com/example/orders/model/Order.java"
+          ],
+          "recall": {
+            "1": 1,
+            "3": 1,
+            "5": 1
+          },
+          "reciprocalRank": 1,
+          "refused": false
+        },
+        {
+          "id": "charge-card",
+          "query": "charge the customer through the payment gateway",
+          "ranked": [
+            "src/main/java/com/example/orders/service/PaymentService.java#PaymentService",
+            "src/main/java/com/example/orders/service/PaymentGateway.java#PaymentGateway",
+            "src/main/java/com/example/orders/service/PaymentService.java#chargeOrder",
+            "src/main/java/com/example/orders/service/OrderService.java#placeOrder",
+            "src/main/java/com/example/orders/service/PaymentGateway.java"
+          ],
+          "recall": {
+            "1": 0,
+            "3": 1,
+            "5": 1
+          },
+          "reciprocalRank": 0.3333333333333333,
+          "refused": false
+        },
+        {
+          "id": "place-order-endpoint",
+          "query": "REST endpoint that places a new order",
+          "ranked": [
+            "src/main/java/com/example/orders/controller/OrderController.java#placeOrder",
+            "src/main/java/com/example/orders/controller/OrderController.java#PlaceOrderRequest",
+            "web/src/orderClient.ts#OrderClient",
+            "web/src/orderClient.ts#placeOrder",
+            "src/main/java/com/example/orders/controller/OrderController.java#OrderController"
+          ],
+          "recall": {
+            "1": 1,
+            "3": 1,
+            "5": 1
+          },
+          "reciprocalRank": 1,
+          "refused": false
+        },
+        {
+          "id": "row-mapping",
+          "query": "How is an order mapped from a database result set row?",
+          "ranked": [
+            "src/main/java/com/example/orders/repository/OrderRowMapper.java",
+            "src/main/java/com/example/orders/repository/JdbcOrderSearchRepository.java",
+            "src/main/java/com/example/orders/model/Order.java",
+            "src/main/java/com/example/orders/service/OrderService.java",
+            "src/main/java/com/example/orders/service/DiscountPolicy.java"
+          ],
+          "recall": {
+            "1": 1,
+            "3": 1,
+            "5": 1
+          },
+          "reciprocalRank": 1,
+          "refused": false
+        },
+        {
+          "id": "rate-limit",
+          "query": "requests per minute limit for the public API",
+          "ranked": [
+            "src/main/java/com/example/orders/config/RateLimitConfig.java",
+            "src/main/java/com/example/orders/controller/OrderController.java",
+            "src/main/java/com/example/orders/repository/JdbcOrderSearchRepository.java",
+            "src/test/java/com/example/orders/service/InventoryServiceTest.java",
+            "src/main/resources/application.properties"
+          ],
+          "recall": {
+            "1": 1,
+            "3": 1,
+            "5": 1
+          },
+          "reciprocalRank": 1,
+          "refused": false
+        },
+        {
+          "id": "exact-exception-name",
+          "query": "OrderNotFoundException",
+          "ranked": [
+            "src/main/java/com/example/orders/exception/OrderNotFoundException.java",
+            "src/main/java/com/example/orders/service/OrderService.java",
+            "src/main/java/com/example/orders/service/PaymentService.java",
+            "src/main/java/com/example/orders/exception/InsufficientStockException.java",
+            "src/main/java/com/example/orders/exception/PaymentDeclinedException.java"
+          ],
+          "recall": {
+            "1": 1,
+            "3": 1,
+            "5": 1
+          },
+          "reciprocalRank": 1,
+          "refused": false
+        },
+        {
+          "id": "browser-cancel",
+          "query": "browser client HTTP call to cancel an order",
+          "ranked": [
+            "web/src/orderClient.ts#cancelOrder",
+            "web/src/orderClient.ts#OrderClient",
+            "src/main/java/com/example/orders/controller/OrderController.java#cancelOrder",
+            "web/src/orderClient.ts#placeOrder",
+            "web/src/orderClient.ts#constructor"
+          ],
+          "recall": {
+            "1": 1,
+            "3": 1,
+            "5": 1
+          },
+          "reciprocalRank": 1,
+          "refused": false
+        },
+        {
+          "id": "line-total",
+          "query": "line total computed from unit price and quantity",
+          "ranked": [
+            "src/main/java/com/example/orders/model/OrderItem.java#lineTotal",
+            "src/main/java/com/example/orders/model/OrderItem.java#OrderItem",
+            "web/src/orderClient.ts#OrderItemDto",
+            "src/main/java/com/example/orders/model/OrderItem.java#getUnitPrice",
+            "src/main/java/com/example/orders/service/OrderService.java#calculateTotal"
+          ],
+          "recall": {
+            "1": 1,
+            "3": 1,
+            "5": 1
+          },
+          "reciprocalRank": 1,
+          "refused": false
+        }
+      ]
+    },
+    {
+      "mode": "vector",
+      "meanRecall": {
+        "1": 0.6363636363636364,
+        "3": 0.9545454545454546,
+        "5": 1
+      },
+      "mrr": 0.7575757575757577,
+      "cases": [
+        {
+          "id": "cancel-releases-stock",
+          "query": "Where is stock released when an order is cancelled?",
+          "ranked": [
+            "src/main/java/com/example/orders/service/InventoryService.java#release",
+            "src/main/java/com/example/orders/model/OrderStatus.java#OrderStatus",
+            "src/main/java/com/example/orders/service/OrderService.java#cancelOrder",
+            "web/src/orderClient.ts#OrderDto",
+            "src/main/java/com/example/orders/exception/InsufficientStockException.java#InsufficientStockException"
+          ],
+          "recall": {
+            "1": 0,
+            "3": 1,
+            "5": 1
+          },
+          "reciprocalRank": 0.3333333333333333,
+          "refused": false
+        },
+        {
+          "id": "loyalty-discount",
+          "query": "How is the loyalty discount applied to the subtotal?",
+          "ranked": [
+            "src/main/java/com/example/orders/service/DiscountPolicy.java#DiscountPolicy",
+            "src/main/java/com/example/orders/service/OrderService.java#calculateTotal",
+            "src/main/java/com/example/orders/service/DiscountPolicy.java#applyLoyaltyDiscount",
+            "src/main/java/com/example/orders/service/DiscountPolicy.java#legacyDiscountedTotal",
+            "src/main/resources/application.properties"
+          ],
+          "recall": {
+            "1": 0,
+            "3": 1,
+            "5": 1
+          },
+          "reciprocalRank": 0.3333333333333333,
+          "refused": false
+        },
+        {
+          "id": "insufficient-inventory",
+          "query": "What exception is thrown when there is not enough inventory?",
+          "ranked": [
+            "src/test/java/com/example/orders/service/InventoryServiceTest.java",
+            "src/main/java/com/example/orders/exception/OrderNotFoundException.java",
+            "src/main/java/com/example/orders/service/InventoryService.java",
+            "src/main/java/com/example/orders/exception/InsufficientStockException.java",
+            "src/main/java/com/example/orders/exception/PaymentDeclinedException.java"
+          ],
+          "recall": {
+            "1": 0,
+            "3": 0.5,
+            "5": 1
+          },
+          "reciprocalRank": 0.3333333333333333,
+          "refused": false
+        },
+        {
+          "id": "customer-search-sql",
+          "query": "SQL query that searches orders by customer text",
+          "ranked": [
+            "src/main/java/com/example/orders/repository/JdbcOrderSearchRepository.java",
+            "src/main/java/com/example/orders/controller/OrderController.java",
+            "src/main/java/com/example/orders/model/Order.java",
+            "src/main/java/com/example/orders/service/OrderService.java",
+            "src/main/java/com/example/orders/repository/OrderRowMapper.java"
+          ],
+          "recall": {
+            "1": 1,
+            "3": 1,
+            "5": 1
+          },
+          "reciprocalRank": 1,
+          "refused": false
+        },
+        {
+          "id": "charge-card",
+          "query": "charge the customer through the payment gateway",
+          "ranked": [
+            "src/main/java/com/example/orders/service/PaymentGateway.java#PaymentGateway",
+            "src/main/java/com/example/orders/service/PaymentService.java#PaymentService",
+            "src/main/java/com/example/orders/service/PaymentService.java#chargeOrder",
+            "src/main/java/com/example/orders/service/PaymentGateway.java",
+            "src/main/java/com/example/orders/service/OrderService.java#placeOrder"
+          ],
+          "recall": {
+            "1": 0,
+            "3": 1,
+            "5": 1
+          },
+          "reciprocalRank": 0.3333333333333333,
+          "refused": false
+        },
+        {
+          "id": "place-order-endpoint",
+          "query": "REST endpoint that places a new order",
+          "ranked": [
+            "src/main/java/com/example/orders/controller/OrderController.java#placeOrder",
+            "src/main/java/com/example/orders/controller/OrderController.java#PlaceOrderRequest",
+            "web/src/orderClient.ts#OrderClient",
+            "web/src/orderClient.ts#placeOrder",
+            "src/main/java/com/example/orders/controller/OrderController.java#OrderController"
+          ],
+          "recall": {
+            "1": 1,
+            "3": 1,
+            "5": 1
+          },
+          "reciprocalRank": 1,
+          "refused": false
+        },
+        {
+          "id": "row-mapping",
+          "query": "How is an order mapped from a database result set row?",
+          "ranked": [
+            "src/main/java/com/example/orders/repository/OrderRowMapper.java",
+            "src/main/java/com/example/orders/model/Order.java",
+            "src/main/java/com/example/orders/repository/JdbcOrderSearchRepository.java",
+            "web/src/orderClient.ts",
+            "src/main/java/com/example/orders/service/OrderService.java"
+          ],
+          "recall": {
+            "1": 1,
+            "3": 1,
+            "5": 1
+          },
+          "reciprocalRank": 1,
+          "refused": false
+        },
+        {
+          "id": "rate-limit",
+          "query": "requests per minute limit for the public API",
+          "ranked": [
+            "src/main/java/com/example/orders/config/RateLimitConfig.java",
+            "src/test/java/com/example/orders/service/InventoryServiceTest.java",
+            "src/main/java/com/example/orders/controller/OrderController.java",
+            "web/src/orderClient.ts",
+            "src/main/resources/application.properties"
+          ],
+          "recall": {
+            "1": 1,
+            "3": 1,
+            "5": 1
+          },
+          "reciprocalRank": 1,
+          "refused": false
+        },
+        {
+          "id": "exact-exception-name",
+          "query": "OrderNotFoundException",
+          "ranked": [
+            "src/main/java/com/example/orders/exception/OrderNotFoundException.java",
+            "src/main/java/com/example/orders/service/OrderService.java",
+            "src/main/java/com/example/orders/exception/InsufficientStockException.java",
+            "src/main/java/com/example/orders/exception/PaymentDeclinedException.java",
+            "src/main/java/com/example/orders/service/PaymentService.java"
+          ],
+          "recall": {
+            "1": 1,
+            "3": 1,
+            "5": 1
+          },
+          "reciprocalRank": 1,
+          "refused": false
+        },
+        {
+          "id": "browser-cancel",
+          "query": "browser client HTTP call to cancel an order",
+          "ranked": [
+            "web/src/orderClient.ts#cancelOrder",
+            "web/src/orderClient.ts#OrderClient",
+            "src/main/java/com/example/orders/controller/OrderController.java#cancelOrder",
+            "src/main/java/com/example/orders/service/OrderService.java#cancelOrder",
+            "web/src/orderClient.ts#OrderDto"
+          ],
+          "recall": {
+            "1": 1,
+            "3": 1,
+            "5": 1
+          },
+          "reciprocalRank": 1,
+          "refused": false
+        },
+        {
+          "id": "line-total",
+          "query": "line total computed from unit price and quantity",
+          "ranked": [
+            "src/main/java/com/example/orders/model/OrderItem.java#lineTotal",
+            "src/main/java/com/example/orders/model/OrderItem.java#OrderItem",
+            "src/main/java/com/example/orders/model/OrderItem.java#getUnitPrice",
+            "web/src/orderClient.ts#OrderItemDto",
+            "src/main/java/com/example/orders/service/InventoryService.java#release"
+          ],
+          "recall": {
+            "1": 1,
+            "3": 1,
+            "5": 1
+          },
+          "reciprocalRank": 1,
+          "refused": false
+        }
+      ]
+    },
+    {
+      "mode": "hybrid",
+      "meanRecall": {
+        "1": 0.6363636363636364,
+        "3": 0.8636363636363636,
+        "5": 1
+      },
+      "mrr": 0.7454545454545454,
+      "cases": [
+        {
+          "id": "cancel-releases-stock",
+          "query": "Where is stock released when an order is cancelled?",
+          "ranked": [
+            "src/main/java/com/example/orders/service/InventoryService.java#release",
+            "src/main/java/com/example/orders/model/OrderStatus.java#OrderStatus",
+            "web/src/orderClient.ts#OrderDto",
+            "src/main/java/com/example/orders/exception/InsufficientStockException.java#InsufficientStockException",
+            "src/main/java/com/example/orders/service/OrderService.java#cancelOrder"
+          ],
+          "recall": {
+            "1": 0,
+            "3": 0,
+            "5": 1
+          },
+          "reciprocalRank": 0.2,
+          "refused": false
+        },
+        {
+          "id": "loyalty-discount",
+          "query": "How is the loyalty discount applied to the subtotal?",
+          "ranked": [
+            "src/main/java/com/example/orders/service/DiscountPolicy.java#DiscountPolicy",
+            "src/main/java/com/example/orders/service/OrderService.java#calculateTotal",
+            "src/main/java/com/example/orders/service/DiscountPolicy.java#applyLoyaltyDiscount",
+            "src/main/java/com/example/orders/service/DiscountPolicy.java#legacyDiscountedTotal",
+            "src/main/resources/application.properties"
+          ],
+          "recall": {
+            "1": 0,
+            "3": 1,
+            "5": 1
+          },
+          "reciprocalRank": 0.3333333333333333,
+          "refused": false
+        },
+        {
+          "id": "insufficient-inventory",
+          "query": "What exception is thrown when there is not enough inventory?",
+          "ranked": [
+            "src/main/java/com/example/orders/exception/OrderNotFoundException.java",
+            "src/test/java/com/example/orders/service/InventoryServiceTest.java",
+            "src/main/java/com/example/orders/service/InventoryService.java",
+            "src/main/java/com/example/orders/service/OrderService.java",
+            "src/main/java/com/example/orders/exception/InsufficientStockException.java"
+          ],
+          "recall": {
+            "1": 0,
+            "3": 0.5,
+            "5": 1
+          },
+          "reciprocalRank": 0.3333333333333333,
+          "refused": false
+        },
+        {
+          "id": "customer-search-sql",
+          "query": "SQL query that searches orders by customer text",
+          "ranked": [
+            "src/main/java/com/example/orders/repository/JdbcOrderSearchRepository.java",
+            "src/main/java/com/example/orders/controller/OrderController.java",
+            "src/main/java/com/example/orders/model/Order.java",
+            "src/main/java/com/example/orders/service/OrderService.java",
+            "src/main/java/com/example/orders/repository/OrderRowMapper.java"
+          ],
+          "recall": {
+            "1": 1,
+            "3": 1,
+            "5": 1
+          },
+          "reciprocalRank": 1,
+          "refused": false
+        },
+        {
+          "id": "charge-card",
+          "query": "charge the customer through the payment gateway",
+          "ranked": [
+            "src/main/java/com/example/orders/service/PaymentGateway.java#PaymentGateway",
+            "src/main/java/com/example/orders/service/PaymentService.java#PaymentService",
+            "src/main/java/com/example/orders/service/PaymentService.java#chargeOrder",
+            "src/main/java/com/example/orders/service/OrderService.java#placeOrder",
+            "src/main/java/com/example/orders/service/PaymentGateway.java"
+          ],
+          "recall": {
+            "1": 0,
+            "3": 1,
+            "5": 1
+          },
+          "reciprocalRank": 0.3333333333333333,
+          "refused": false
+        },
+        {
+          "id": "place-order-endpoint",
+          "query": "REST endpoint that places a new order",
+          "ranked": [
+            "src/main/java/com/example/orders/controller/OrderController.java#placeOrder",
+            "src/main/java/com/example/orders/controller/OrderController.java#PlaceOrderRequest",
+            "web/src/orderClient.ts#OrderClient",
+            "web/src/orderClient.ts#placeOrder",
+            "src/main/java/com/example/orders/controller/OrderController.java#OrderController"
+          ],
+          "recall": {
+            "1": 1,
+            "3": 1,
+            "5": 1
+          },
+          "reciprocalRank": 1,
+          "refused": false
+        },
+        {
+          "id": "row-mapping",
+          "query": "How is an order mapped from a database result set row?",
+          "ranked": [
+            "src/main/java/com/example/orders/repository/OrderRowMapper.java",
+            "src/main/java/com/example/orders/model/Order.java",
+            "src/main/java/com/example/orders/repository/JdbcOrderSearchRepository.java",
+            "src/main/java/com/example/orders/service/OrderService.java",
+            "src/main/java/com/example/orders/repository/OrderRepository.java"
+          ],
+          "recall": {
+            "1": 1,
+            "3": 1,
+            "5": 1
+          },
+          "reciprocalRank": 1,
+          "refused": false
+        },
+        {
+          "id": "rate-limit",
+          "query": "requests per minute limit for the public API",
+          "ranked": [
+            "src/main/java/com/example/orders/config/RateLimitConfig.java",
+            "src/main/java/com/example/orders/controller/OrderController.java",
+            "src/test/java/com/example/orders/service/InventoryServiceTest.java",
+            "src/main/resources/application.properties",
+            "web/src/orderClient.ts"
+          ],
+          "recall": {
+            "1": 1,
+            "3": 1,
+            "5": 1
+          },
+          "reciprocalRank": 1,
+          "refused": false
+        },
+        {
+          "id": "exact-exception-name",
+          "query": "OrderNotFoundException",
+          "ranked": [
+            "src/main/java/com/example/orders/exception/OrderNotFoundException.java",
+            "src/main/java/com/example/orders/service/OrderService.java",
+            "src/main/java/com/example/orders/exception/InsufficientStockException.java",
+            "src/main/java/com/example/orders/exception/PaymentDeclinedException.java",
+            "src/main/java/com/example/orders/service/PaymentService.java"
+          ],
+          "recall": {
+            "1": 1,
+            "3": 1,
+            "5": 1
+          },
+          "reciprocalRank": 1,
+          "refused": false
+        },
+        {
+          "id": "browser-cancel",
+          "query": "browser client HTTP call to cancel an order",
+          "ranked": [
+            "web/src/orderClient.ts#cancelOrder",
+            "web/src/orderClient.ts#OrderClient",
+            "src/main/java/com/example/orders/controller/OrderController.java#cancelOrder",
+            "src/main/java/com/example/orders/service/OrderService.java#cancelOrder",
+            "web/src/orderClient.ts#placeOrder"
+          ],
+          "recall": {
+            "1": 1,
+            "3": 1,
+            "5": 1
+          },
+          "reciprocalRank": 1,
+          "refused": false
+        },
+        {
+          "id": "line-total",
+          "query": "line total computed from unit price and quantity",
+          "ranked": [
+            "src/main/java/com/example/orders/model/OrderItem.java#lineTotal",
+            "src/main/java/com/example/orders/model/OrderItem.java#OrderItem",
+            "src/main/java/com/example/orders/model/OrderItem.java#getUnitPrice",
+            "web/src/orderClient.ts#OrderItemDto",
+            "src/main/java/com/example/orders/service/InventoryService.java#release"
+          ],
+          "recall": {
+            "1": 1,
+            "3": 1,
+            "5": 1
+          },
+          "reciprocalRank": 1,
+          "refused": false
+        }
+      ]
+    }
+  ],
+  "refusal": {
+    "correctRefusals": 3,
+    "falseRefusals": 0,
+    "missedRefusals": 0
+  }
+}

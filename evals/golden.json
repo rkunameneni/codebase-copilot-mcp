@@ -1,0 +1,84 @@
+{
+  "corpus": "sample-repo",
+  "description": "Retrieval golden set for the sample order service. Targets are file paths, or path#symbol when the case is about one method. Cases with expectRefusal ask about things the corpus does not contain.",
+  "cases": [
+    {
+      "id": "cancel-releases-stock",
+      "query": "Where is stock released when an order is cancelled?",
+      "relevant": ["src/main/java/com/example/orders/service/OrderService.java#cancelOrder"]
+    },
+    {
+      "id": "loyalty-discount",
+      "query": "How is the loyalty discount applied to the subtotal?",
+      "relevant": [
+        "src/main/java/com/example/orders/service/DiscountPolicy.java#applyLoyaltyDiscount"
+      ]
+    },
+    {
+      "id": "insufficient-inventory",
+      "query": "What exception is thrown when there is not enough inventory?",
+      "relevant": [
+        "src/main/java/com/example/orders/service/InventoryService.java",
+        "src/main/java/com/example/orders/exception/InsufficientStockException.java"
+      ]
+    },
+    {
+      "id": "customer-search-sql",
+      "query": "SQL query that searches orders by customer text",
+      "relevant": ["src/main/java/com/example/orders/repository/JdbcOrderSearchRepository.java"]
+    },
+    {
+      "id": "charge-card",
+      "query": "charge the customer through the payment gateway",
+      "relevant": ["src/main/java/com/example/orders/service/PaymentService.java#chargeOrder"]
+    },
+    {
+      "id": "place-order-endpoint",
+      "query": "REST endpoint that places a new order",
+      "relevant": ["src/main/java/com/example/orders/controller/OrderController.java#placeOrder"]
+    },
+    {
+      "id": "row-mapping",
+      "query": "How is an order mapped from a database result set row?",
+      "relevant": ["src/main/java/com/example/orders/repository/OrderRowMapper.java"]
+    },
+    {
+      "id": "rate-limit",
+      "query": "requests per minute limit for the public API",
+      "relevant": ["src/main/java/com/example/orders/config/RateLimitConfig.java"]
+    },
+    {
+      "id": "exact-exception-name",
+      "query": "OrderNotFoundException",
+      "relevant": ["src/main/java/com/example/orders/exception/OrderNotFoundException.java"]
+    },
+    {
+      "id": "browser-cancel",
+      "query": "browser client HTTP call to cancel an order",
+      "relevant": ["web/src/orderClient.ts#cancelOrder"]
+    },
+    {
+      "id": "line-total",
+      "query": "line total computed from unit price and quantity",
+      "relevant": ["src/main/java/com/example/orders/model/OrderItem.java#lineTotal"]
+    },
+    {
+      "id": "oos-payroll",
+      "query": "How are payroll taxes withheld from employee wages?",
+      "relevant": [],
+      "expectRefusal": true
+    },
+    {
+      "id": "oos-kafka",
+      "query": "Which Kafka topic are order events published to?",
+      "relevant": [],
+      "expectRefusal": true
+    },
+    {
+      "id": "oos-jwt",
+      "query": "How do we rotate the JWT signing keys?",
+      "relevant": [],
+      "expectRefusal": true
+    }
+  ]
+}
